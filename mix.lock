@@ -1,0 +1,4 @@
+%{
+  "feeder": {:hex, :feeder, "2.3.2", "18792e18ae2928885e1859ecfbac6fc7a2ec6e99efa51828160e530b2a188c8b", [:make], [], "hexpm", "e176f1e486a4498ae0e235fb5d254082272d52e5f9bd825c469f1dcddf21edd4"},
+  "feeder_ex": {:hex, :feeder_ex, "1.1.0", "0be3732255cdb45dec949e0ede6852b5261c9ff173360e8274a6ac65183b2b55", [:mix], [{:feeder, "~> 2.2", [hex: :feeder, repo: "hexpm", optional: false]}], "hexpm", "3d06dfcc3e13a2fb66182dffc16e112b0ef9aea432a949f48b56c667ac09d07e"},
+}

@@ -1,6 +1,8 @@
 # LiveRSS
 Stream RSS feeds with this GenServer.
 
+![Asciicinema](https://i.imgur.com/lGSEWCJ.gif)
+
 ```elixir
 LiveRSS.Pool.start_link(
   name: :new_york_times,

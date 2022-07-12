@@ -1,7 +1,12 @@
 # LiveRSS
 Stream RSS feeds with this GenServer.
 
-![Asciicinema](https://i.imgur.com/lGSEWCJ.gif)
+![Asciicinema](https://i.imgur.com/PdsDx1X.gif)
+
+Some of the features of LiveRSS are:
+- Automatically pooling of RSS feeds with a GenServer process
+- Configurable pooling rate
+- RSS feed parsing using pure Elixir with `feeder_ex` 
 
 ```elixir
 LiveRSS.Pool.start_link(

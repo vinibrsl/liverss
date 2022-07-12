@@ -9,12 +9,12 @@ defmodule LiveRSS.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       package: [
-        name: :live_rss,
+        name: :liverss,
         licenses: ["MIT"],
         description: "Stream RSS feeds with this GenServer",
-        source_url: "https://github.com/vinibrsl/live_rss",
-        homepage_url: "https://github.com/vinibrsl/live_rss",
-        links: %{"GitHub" => "https://github.com/vinibrsl/live_rss"}
+        source_url: "https://github.com/vinibrsl/liverss",
+        homepage_url: "https://github.com/vinibrsl/liverss",
+        links: %{"GitHub" => "https://github.com/vinibrsl/liverss"}
       ],
       docs: [
         name: "LiveRSS",

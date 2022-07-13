@@ -1,16 +1,16 @@
-defmodule LiveRSS.Pool do
+defmodule LiveRSS.Poll do
   @moduledoc """
-  LiveRSS.Pool is a GenServer that pools a RSS feed periodically.
+  LiveRSS.Poll is a GenServer that polls a RSS feed periodically.
 
   ```elixir
-  LiveRSS.Pool.start_link(name: :live_rss_blog, url: "https://blog.test/feed.rss", refresh_every: :timer.hours(2))
-  LiveRSS.Pool.start_link(name: :live_rss_videos, url: "https://videos.test/feed.rss", refresh_every: :timer.hours(1))
-  LiveRSS.Pool.start_link(name: :live_rss_photos, url: "https://photos.test/feed.rss", refresh_every: :timer.minutes(10))
+  LiveRSS.Poll.start_link(name: :live_rss_blog, url: "https://blog.test/feed.rss", refresh_every: :timer.hours(2))
+  LiveRSS.Poll.start_link(name: :live_rss_videos, url: "https://videos.test/feed.rss", refresh_every: :timer.hours(1))
+  LiveRSS.Poll.start_link(name: :live_rss_photos, url: "https://photos.test/feed.rss", refresh_every: :timer.minutes(10))
 
   %FeederEx.Feed{} = LiveRSS.get(:live_rss_blog)
   ```
 
-  Use `LiveRSS.Pool.start_link/1` to start the GenServer. You can use the following
+  Use `LiveRSS.Poll.start_link/1` to start the GenServer. You can use the following
   options as the example:
   * `name`: the atom name of the process that will be used to retrieve the feed later
   * `url`: the URL of the RSS feed
@@ -63,10 +63,10 @@ defmodule LiveRSS.Pool do
 
   @impl true
   def init(state) do
-    Logger.info("LiveRSS: Started #{state[:name]} pooling every #{state[:refresh_every]}ms")
+    Logger.info("LiveRSS: Started #{state[:name]} polling every #{state[:refresh_every]}ms")
 
     state = Keyword.merge(@default_state, state)
-    schedule_pooling(state)
+    schedule_polling(state)
 
     {:ok, state}
   end
@@ -84,15 +84,15 @@ defmodule LiveRSS.Pool do
   end
 
   @impl true
-  def handle_info(:pool, state) do
+  def handle_info(:poll, state) do
     state = put_feed(state)
-    schedule_pooling(state)
+    schedule_polling(state)
 
     {:noreply, state}
   end
 
-  defp schedule_pooling(state) do
-    Process.send_after(self(), :pool, state[:refresh_every])
+  defp schedule_polling(state) do
+    Process.send_after(self(), :poll, state[:refresh_every])
   end
 
   defp put_feed(state) do

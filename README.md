@@ -1,15 +1,17 @@
 # LiveRSS
 Stream RSS feeds with this GenServer.
 
-![Asciicinema](https://i.imgur.com/PdsDx1X.gif)
+<p align="center">
+  <img width="600" src="./example.svg">
+</p>
 
 Some of the features of LiveRSS are:
-- Automatically pooling of RSS feeds with a GenServer process
-- Configurable pooling rate
+- Automatically polling of RSS feeds with a GenServer process
+- Configurable polling rate
 - RSS feed parsing using pure Elixir with `feeder_ex` 
 
 ```elixir
-LiveRSS.Pool.start_link(
+LiveRSS.Poll.start_link(
   name: :new_york_times,
   url: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
   refresh_every: :timer.hours(2)

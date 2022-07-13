@@ -45,4 +45,4 @@ end
 ```
 
 ## Documentation
-The documentation for this library can be found at [HexDocs](https://hexdocs.pm/liverss/).
+The documentation for this library can be found at [HexDocs](https://hexdocs.pm/liverss/readme.html).
